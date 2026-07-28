@@ -42,7 +42,13 @@ jobs:
         env:
           HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
         run: |
-          ASSET_URL="https://github.com/scalar/scalar-cli/releases/download/v${PKG_VERSION}/scalarapi-${PKG_VERSION}.tgz"
+          # Reads back the tarball the preceding asset step just uploaded. That step runs
+          # `gh release upload` on the ambient GITHUB_TOKEN, which can only write releases in
+          # the repository the workflow runs in, so the download must resolve against
+          # `github.repository` too. Deriving it from configured productionRepo instead lets the
+          # two disagree — a renamed, transferred, or forked destination repo then 404s here on
+          # every release, having uploaded the asset perfectly well one step earlier.
+          ASSET_URL="https://github.com/${{ github.repository }}/releases/download/v${PKG_VERSION}/scalarapi-${PKG_VERSION}.tgz"
           curl -fsSL "$ASSET_URL" -o release.tgz
           SHA256="$(shasum -a 256 release.tgz | cut -d" " -f1)"
           git clone "https://x-access-token:${HOMEBREW_TAP_TOKEN}@github.com/scalar/scalar-cli-homebrew.git" tap
