@@ -41,5 +41,5 @@ Non-success responses throw generated API errors. Error objects expose status, h
 
 ## Reference files
 
-- [README.md](../../../README.md) — full feature tour: client options, request options, retries and timeouts, logging.
+- [README.md](../../../README.md) — full feature tour: client options, retries and timeouts, logging.
 - [api.md](../../../api.md) — complete catalogue of every operation with request and response types.
