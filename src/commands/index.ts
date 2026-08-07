@@ -3,6 +3,7 @@
 import type { Command } from 'commander'
 import SDK from '../sdk/index'
 import { createProgram, type CliClientOptionDefinition, type CliCommandDefinition } from '../cli/runtime'
+import { completions } from '../cli/completions'
 
 const clientOptions = [
   {
@@ -2142,4 +2143,5 @@ export const getProgram = (): Command =>
     defaultErrorFormat: "auto",
     clientOptions,
     commands,
+    completions,
   })

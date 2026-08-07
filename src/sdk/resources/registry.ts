@@ -32,7 +32,7 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const listAPIDocuments = await client.registry.listAPIDocuments("namespace");
+   * const listAPIDocuments = await client.registry.listAPIDocuments('namespace');
    * ```
    */
   listAPIDocuments(namespace_: string, options?: RequestOptions): APIPromise<RegistryListAPIDocumentsResponse> {
@@ -49,11 +49,11 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const createAPIDocument = await client.registry.createAPIDocument("namespace", {
-   *   title: "",
-   *   version: "x",
-   *   slug: "",
-   *   document: "",
+   * const createAPIDocument = await client.registry.createAPIDocument('namespace', {
+   *   title: '',
+   *   version: 'x',
+   *   slug: '',
+   *   document: '',
    * });
    * ```
    */
@@ -71,8 +71,8 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * await client.registry.updateAPIDocument("slug", {
-   *   namespace: "namespace",
+   * await client.registry.updateAPIDocument('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -91,8 +91,8 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * await client.registry.deleteAPIDocument("slug", {
-   *   namespace: "namespace",
+   * await client.registry.deleteAPIDocument('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -111,9 +111,9 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const string_ = await client.registry.retrieveAPIDocumentVersion("semver", {
-   *   namespace: "namespace",
-   *   slug: "slug",
+   * const string_ = await client.registry.retrieveAPIDocumentVersion('semver', {
+   *   namespace: 'namespace',
+   *   slug: 'slug',
    * });
    * ```
    */
@@ -132,10 +132,10 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const updateAPIDocumentVersion = await client.registry.updateAPIDocumentVersion("semver", {
-   *   namespace: "namespace",
-   *   slug: "slug",
-   *   document: "",
+   * const updateAPIDocumentVersion = await client.registry.updateAPIDocumentVersion('semver', {
+   *   namespace: 'namespace',
+   *   slug: 'slug',
+   *   document: '',
    * });
    * ```
    */
@@ -154,9 +154,9 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * await client.registry.deleteAPIDocumentVersion("semver", {
-   *   namespace: "namespace",
-   *   slug: "slug",
+   * await client.registry.deleteAPIDocumentVersion('semver', {
+   *   namespace: 'namespace',
+   *   slug: 'slug',
    * });
    * ```
    */
@@ -175,9 +175,9 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const listAPIDocumentVersionMetadata = await client.registry.listAPIDocumentVersionMetadata("semver", {
-   *   namespace: "namespace",
-   *   slug: "slug",
+   * const listAPIDocumentVersionMetadata = await client.registry.listAPIDocumentVersionMetadata('semver', {
+   *   namespace: 'namespace',
+   *   slug: 'slug',
    * });
    * ```
    */
@@ -196,10 +196,10 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * const createAPIDocumentVersion = await client.registry.createAPIDocumentVersion("slug", {
-   *   namespace: "namespace",
-   *   version: "x",
-   *   document: "",
+   * const createAPIDocumentVersion = await client.registry.createAPIDocumentVersion('slug', {
+   *   namespace: 'namespace',
+   *   version: 'x',
+   *   document: '',
    * });
    * ```
    */
@@ -218,9 +218,9 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * await client.registry.createAPIDocumentAccessGroup("slug", {
-   *   namespace: "namespace",
-   *   accessGroupSlug: "xxx",
+   * await client.registry.createAPIDocumentAccessGroup('slug', {
+   *   namespace: 'namespace',
+   *   accessGroupSlug: 'xxx',
    * });
    * ```
    */
@@ -239,9 +239,9 @@ export class Registry extends APIResource {
    *
    * @example
    * ```ts
-   * await client.registry.deleteAPIDocumentAccessGroup("slug", {
-   *   namespace: "namespace",
-   *   accessGroupSlug: "xxx",
+   * await client.registry.deleteAPIDocumentAccessGroup('slug', {
+   *   namespace: 'namespace',
+   *   accessGroupSlug: 'xxx',
    * });
    * ```
    */
@@ -267,7 +267,6 @@ export type RegistryListAllAPIDocumentsResponse = Array<RegistryListAllAPIDocume
 export namespace RegistryListAllAPIDocumentsResponse {
   export interface RegistryListAllAPIDocumentsResponseItem {
     /**
-     * @default nanoid()
      * @minLength 5
      */
     uid: string;
@@ -276,20 +275,15 @@ export namespace RegistryListAllAPIDocumentsResponse {
      */
     version: Version;
     /**
-     * @default ""
      * @maxLength 100
      */
     title: string;
     /**
-     * @default randomManagedDocSlug()
      * @minLength 3
      * @maxLength 60
      * @pattern ^[a-z](?:[a-z0-9-]*[a-z0-9])?$
      */
     slug: ScalarDocsAPI.Slug;
-    /**
-     * @default ""
-     */
     description: string;
     /**
      * @minLength 3
@@ -297,13 +291,7 @@ export namespace RegistryListAllAPIDocumentsResponse {
      * @pattern ^[a-zA-Z0-9-_]+$
      */
     namespace: string;
-    /**
-     * @default false
-     */
     isPrivate: boolean;
-    /**
-     * @default []
-     */
     tags: unknown;
     versions: Array<RegistryListAllAPIDocumentsResponseItem.Version>;
   }
@@ -319,17 +307,8 @@ export namespace RegistryListAllAPIDocumentsResponse {
        * @minLength 1
        */
       version: Version;
-      /**
-       * @default false
-       */
       upgraded: boolean;
-      /**
-       * @default null
-       */
       embedStatus: "complete" | "failed" | null;
-      /**
-       * @default []
-       */
       tags: Array<string>;
       tools?: Array<Version.Tool>;
       yamlSha?: string;
@@ -352,7 +331,6 @@ export type RegistryListAPIDocumentsResponse = Array<RegistryListAPIDocumentsRes
 export namespace RegistryListAPIDocumentsResponse {
   export interface RegistryListAPIDocumentsResponseItem {
     /**
-     * @default nanoid()
      * @minLength 5
      */
     uid: string;
@@ -361,20 +339,15 @@ export namespace RegistryListAPIDocumentsResponse {
      */
     version: Version;
     /**
-     * @default ""
      * @maxLength 100
      */
     title: string;
     /**
-     * @default randomManagedDocSlug()
      * @minLength 3
      * @maxLength 60
      * @pattern ^[a-z](?:[a-z0-9-]*[a-z0-9])?$
      */
     slug: ScalarDocsAPI.Slug;
-    /**
-     * @default ""
-     */
     description: string;
     /**
      * @minLength 3
@@ -382,13 +355,7 @@ export namespace RegistryListAPIDocumentsResponse {
      * @pattern ^[a-zA-Z0-9-_]+$
      */
     namespace: string;
-    /**
-     * @default false
-     */
     isPrivate: boolean;
-    /**
-     * @default []
-     */
     tags: unknown;
     versions: Array<RegistryListAPIDocumentsResponseItem.Version>;
   }
@@ -404,17 +371,8 @@ export namespace RegistryListAPIDocumentsResponse {
        * @minLength 1
        */
       version: Version;
-      /**
-       * @default false
-       */
       upgraded: boolean;
-      /**
-       * @default null
-       */
       embedStatus: "complete" | "failed" | null;
-      /**
-       * @default []
-       */
       tags: Array<string>;
       tools?: Array<Version.Tool>;
       yamlSha?: string;
@@ -539,17 +497,8 @@ export interface RegistryListAPIDocumentVersionMetadataResponse {
    * @minLength 1
    */
   version: Version;
-  /**
-   * @default false
-   */
   upgraded: boolean;
-  /**
-   * @default null
-   */
   embedStatus: "complete" | "failed" | null;
-  /**
-   * @default []
-   */
   tags: Array<string>;
   tools?: Array<RegistryListAPIDocumentVersionMetadataResponse.Tool>;
   yamlSha?: string;
@@ -599,17 +548,8 @@ export interface RegistryCreateAPIDocumentVersionResponse {
    * @minLength 1
    */
   version: Version;
-  /**
-   * @default false
-   */
   upgraded: boolean;
-  /**
-   * @default null
-   */
   embedStatus: "complete" | "failed" | null;
-  /**
-   * @default []
-   */
   tags: Array<string>;
   tools?: Array<RegistryCreateAPIDocumentVersionResponse.Tool>;
   yamlSha?: string;

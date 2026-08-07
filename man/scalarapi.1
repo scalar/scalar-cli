@@ -1,0 +1,205 @@
+.\" File generated from our OpenAPI spec by Scalar. Do not edit.
+.TH "SCALARAPI" "1" "" "scalarapi" "Scalar API Manual"
+.SH "NAME"
+scalarapi \- command line interface for the Scalar API
+.SH "SYNOPSIS"
+.B scalarapi
+[\fIglobal options\fR] \fIcommand\fR [\fIsubcommand\fR] [\fIarguments\fR] [\fIoptions\fR]
+.SH "DESCRIPTION"
+scalarapi calls the Scalar API from the command line. Commands are grouped by resource, and every command prints its result to standard output in the configured format.
+.PP
+API for managing Scalar platform resources.
+.SH "GLOBAL OPTIONS"
+.TP
+\fB\-\-base\-url\fR \fI<url>\fR
+Override the base URL for API requests.
+.TP
+\fB\-\-timeout\fR \fI<ms>\fR
+Request timeout in milliseconds.
+.TP
+\fB\-\-max\-retries\fR \fI<count>\fR
+Number of retries for retryable failures.
+.TP
+\fB\-\-format\fR \fI<format>\fR
+Output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-format\-error\fR \fI<format>\fR
+Error output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-transform\fR \fI<path>\fR
+Dot\-path transform for data output.
+.TP
+\fB\-\-transform\-error\fR \fI<path>\fR
+Dot\-path transform for error output.
+.TP
+\fB\-r\fR, \fB\-\-raw\-output\fR
+Print transformed string values without JSON quotes.
+.TP
+\fB\-\-debug\fR
+Enable SDK debug logging on standard error.
+.TP
+\fB\-\-bearer\-auth\fR \fI<value>\fR
+API credential. Can also be set with the BEARER_AUTH environment variable.
+.SH "COMMANDS"
+.TP
+\fBscalarapi registry list\-all\-api\-documents\fR
+List all API Documents. See scalarapi\-registry\-list\-all\-api\-documents(1).
+.TP
+\fBscalarapi registry list\-api\-documents\fR
+List API Documents in a namespace. See scalarapi\-registry\-list\-api\-documents(1).
+.TP
+\fBscalarapi registry create\-api\-document\fR
+Create API Document. See scalarapi\-registry\-create\-api\-document(1).
+.TP
+\fBscalarapi registry update\-api\-document\fR
+Update API Document metadata. See scalarapi\-registry\-update\-api\-document(1).
+.TP
+\fBscalarapi registry delete\-api\-document\fR
+Delete API Document. See scalarapi\-registry\-delete\-api\-document(1).
+.TP
+\fBscalarapi registry retrieve\-api\-document\-version\fR
+Get API Document. See scalarapi\-registry\-retrieve\-api\-document\-version(1).
+.TP
+\fBscalarapi registry update\-api\-document\-version\fR
+Update API Document version. See scalarapi\-registry\-update\-api\-document\-version(1).
+.TP
+\fBscalarapi registry delete\-api\-document\-version\fR
+Delete API Document version. See scalarapi\-registry\-delete\-api\-document\-version(1).
+.TP
+\fBscalarapi registry list\-api\-document\-version\-metadata\fR
+Get API Document version metadata. See scalarapi\-registry\-list\-api\-document\-version\-metadata(1).
+.TP
+\fBscalarapi registry create\-api\-document\-version\fR
+Create API Document version. See scalarapi\-registry\-create\-api\-document\-version(1).
+.TP
+\fBscalarapi registry create\-api\-document\-access\-group\fR
+Add access group. See scalarapi\-registry\-create\-api\-document\-access\-group(1).
+.TP
+\fBscalarapi registry delete\-api\-document\-access\-group\fR
+Remove access group. See scalarapi\-registry\-delete\-api\-document\-access\-group(1).
+.TP
+\fBscalarapi schemas list\fR
+List all shared components. See scalarapi\-schemas\-list(1).
+.TP
+\fBscalarapi schemas create\fR
+Create a shared component. See scalarapi\-schemas\-create(1).
+.TP
+\fBscalarapi schemas update\fR
+Update shared component metadata. See scalarapi\-schemas\-update(1).
+.TP
+\fBscalarapi schemas delete\fR
+Delete a shared component. See scalarapi\-schemas\-delete(1).
+.TP
+\fBscalarapi schemas:version\-command retrieve\-schema\fR
+Get a shared component document. See scalarapi\-schemas\-version\-command\-retrieve\-schema(1).
+.TP
+\fBscalarapi schemas:version\-command delete\-schema\fR
+Delete a shared component version. See scalarapi\-schemas\-version\-command\-delete\-schema(1).
+.TP
+\fBscalarapi schemas:version\-command create\-schema\fR
+Create a shared component version. See scalarapi\-schemas\-version\-command\-create\-schema(1).
+.TP
+\fBscalarapi schemas:access\-group create\-schema\fR
+Add shared component access group. See scalarapi\-schemas\-access\-group\-create\-schema(1).
+.TP
+\fBscalarapi schemas:access\-group delete\-schema\fR
+Remove shared component access group. See scalarapi\-schemas\-access\-group\-delete\-schema(1).
+.TP
+\fBscalarapi login\-portals retrieve\fR
+Get a login portal. See scalarapi\-login\-portals\-retrieve(1).
+.TP
+\fBscalarapi login\-portals update\fR
+Update portal metadata. See scalarapi\-login\-portals\-update(1).
+.TP
+\fBscalarapi login\-portals delete\fR
+Delete a login portal. See scalarapi\-login\-portals\-delete(1).
+.TP
+\fBscalarapi login\-portals create\fR
+Create a portal. See scalarapi\-login\-portals\-create(1).
+.TP
+\fBscalarapi login\-portals list\fR
+List all portals. See scalarapi\-login\-portals\-list(1).
+.TP
+\fBscalarapi rules list\-rulesets\fR
+List all rules. See scalarapi\-rules\-list\-rulesets(1).
+.TP
+\fBscalarapi rules create\-ruleset\fR
+Create a rule. See scalarapi\-rules\-create\-ruleset(1).
+.TP
+\fBscalarapi rules update\-ruleset\fR
+Update rule metadata. See scalarapi\-rules\-update\-ruleset(1).
+.TP
+\fBscalarapi rules delete\-ruleset\fR
+Delete a rule. See scalarapi\-rules\-delete\-ruleset(1).
+.TP
+\fBscalarapi rules retrieve\-ruleset\-document\fR
+Get a rule. See scalarapi\-rules\-retrieve\-ruleset\-document(1).
+.TP
+\fBscalarapi rules create\-ruleset\-access\-group\fR
+Add rule access group. See scalarapi\-rules\-create\-ruleset\-access\-group(1).
+.TP
+\fBscalarapi rules delete\-ruleset\-access\-group\fR
+Remove rule access group. See scalarapi\-rules\-delete\-ruleset\-access\-group(1).
+.TP
+\fBscalarapi themes list\fR
+List all themes. See scalarapi\-themes\-list(1).
+.TP
+\fBscalarapi themes create\fR
+Create a theme. See scalarapi\-themes\-create(1).
+.TP
+\fBscalarapi themes update\fR
+Update theme metadata. See scalarapi\-themes\-update(1).
+.TP
+\fBscalarapi themes replace\-document\fR
+Update theme document. See scalarapi\-themes\-replace\-document(1).
+.TP
+\fBscalarapi themes delete\fR
+Delete a theme. See scalarapi\-themes\-delete(1).
+.TP
+\fBscalarapi themes retrieve\fR
+Get a theme. See scalarapi\-themes\-retrieve(1).
+.TP
+\fBscalarapi teams list\fR
+List teams. See scalarapi\-teams\-list(1).
+.TP
+\fBscalarapi scalar\-docs list\-guides\fR
+List all projects. See scalarapi\-scalar\-docs\-list\-guides(1).
+.TP
+\fBscalarapi scalar\-docs create\-guide\fR
+Create a project. See scalarapi\-scalar\-docs\-create\-guide(1).
+.TP
+\fBscalarapi scalar\-docs publish\-guide\fR
+Publish a project. See scalarapi\-scalar\-docs\-publish\-guide(1).
+.TP
+\fBscalarapi namespaces list\fR
+List namespaces. See scalarapi\-namespaces\-list(1).
+.TP
+\fBscalarapi authentication exchange\-personal\-token\fR
+Exchange token. See scalarapi\-authentication\-exchange\-personal\-token(1).
+.TP
+\fBscalarapi authentication list\-current\-user\fR
+Get current user. See scalarapi\-authentication\-list\-current\-user(1).
+.TP
+\fBscalarapi completion\fR
+Print a shell completion script. See scalarapi\-completion(1).
+.SH "SHELL COMPLETION"
+scalarapi completion <shell> prints a completion script for bash, zsh, and fish. Load it from your shell startup file:
+.PP
+.RS 4
+.nf
+eval "$(scalarapi completion bash)"
+eval "$(scalarapi completion zsh)"
+scalarapi completion fish | source
+.fi
+.RE
+.SH "ENVIRONMENT"
+.TP
+\fBBEARER_AUTH\fR
+Fallback for \-\-bearer\-auth when the flag is not passed.
+.SH "EXIT STATUS"
+.TP
+\fB0\fR
+The command completed successfully.
+.TP
+\fB1\fR
+A usage error, or the request failed. The error is printed to standard error.

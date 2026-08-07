@@ -1,0 +1,67 @@
+.\" File generated from our OpenAPI spec by Scalar. Do not edit.
+.TH "SCALARAPI\-THEMES\-REPLACE\-DOCUMENT" "1" "" "scalarapi" "Scalar API Manual"
+.SH "NAME"
+scalarapi\-themes\-replace\-document \- Update theme document
+.SH "SYNOPSIS"
+.B scalarapi themes replace\-document
+\fIslug\fR \fB\-\-document\fR \fI<value>\fR [\fIoptions\fR]
+.SH "DESCRIPTION"
+Replace the theme document.
+.SH "ARGUMENTS"
+.TP
+\fIslug\fR, \fB\-\-slug\fR \fI<value>\fR
+The slug path parameter. Required. Can also be supplied as \-\-slug.
+.SH "OPTIONS"
+.TP
+\fB\-\-document\fR \fI<value>\fR
+The document body parameter. Required.
+.TP
+\fB\-\-base\-url\fR \fI<url>\fR
+Override the base URL for API requests.
+.TP
+\fB\-\-timeout\fR \fI<ms>\fR
+Request timeout in milliseconds.
+.TP
+\fB\-\-max\-retries\fR \fI<count>\fR
+Number of retries for retryable failures.
+.TP
+\fB\-\-format\fR \fI<format>\fR
+Output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-format\-error\fR \fI<format>\fR
+Error output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-transform\fR \fI<path>\fR
+Dot\-path transform for data output.
+.TP
+\fB\-\-transform\-error\fR \fI<path>\fR
+Dot\-path transform for error output.
+.TP
+\fB\-r\fR, \fB\-\-raw\-output\fR
+Print transformed string values without JSON quotes.
+.TP
+\fB\-\-debug\fR
+Enable SDK debug logging on standard error.
+.TP
+\fB\-\-bearer\-auth\fR \fI<value>\fR
+API credential. Can also be set with the BEARER_AUTH environment variable.
+.SH "EXAMPLES"
+.PP
+.RS 4
+.nf
+scalarapi themes replace\-document 'slug' \-\-bearer\-auth "$BEARER_AUTH" \-\-document 'document'
+.fi
+.RE
+.SH "ENVIRONMENT"
+.TP
+\fBBEARER_AUTH\fR
+Fallback for \-\-bearer\-auth when the flag is not passed.
+.SH "EXIT STATUS"
+.TP
+\fB0\fR
+The command completed successfully.
+.TP
+\fB1\fR
+A usage error, or the request failed. The error is printed to standard error.
+.SH "SEE ALSO"
+.BR scalarapi (1)

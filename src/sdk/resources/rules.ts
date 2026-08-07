@@ -18,7 +18,7 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * const listRulesets = await client.rules.listRulesets("namespace");
+   * const listRulesets = await client.rules.listRulesets('namespace');
    * ```
    */
   listRulesets(namespace_: string, options?: RequestOptions): APIPromise<RuleListRulesetsResponse> {
@@ -35,10 +35,10 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * const createRuleset = await client.rules.createRuleset("namespace", {
-   *   title: "",
-   *   slug: "",
-   *   document: "",
+   * const createRuleset = await client.rules.createRuleset('namespace', {
+   *   title: '',
+   *   slug: '',
+   *   document: '',
    * });
    * ```
    */
@@ -56,8 +56,8 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * await client.rules.updateRuleset("slug", {
-   *   namespace: "namespace",
+   * await client.rules.updateRuleset('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -76,8 +76,8 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * await client.rules.deleteRuleset("slug", {
-   *   namespace: "namespace",
+   * await client.rules.deleteRuleset('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -96,8 +96,8 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * const string_ = await client.rules.retrieveRulesetDocument("slug", {
-   *   namespace: "namespace",
+   * const string_ = await client.rules.retrieveRulesetDocument('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -116,9 +116,9 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * await client.rules.createRulesetAccessGroup("slug", {
-   *   namespace: "namespace",
-   *   accessGroupSlug: "xxx",
+   * await client.rules.createRulesetAccessGroup('slug', {
+   *   namespace: 'namespace',
+   *   accessGroupSlug: 'xxx',
    * });
    * ```
    */
@@ -137,9 +137,9 @@ export class Rules extends APIResource {
    *
    * @example
    * ```ts
-   * await client.rules.deleteRulesetAccessGroup("slug", {
-   *   namespace: "namespace",
-   *   accessGroupSlug: "xxx",
+   * await client.rules.deleteRulesetAccessGroup('slug', {
+   *   namespace: 'namespace',
+   *   accessGroupSlug: 'xxx',
    * });
    * ```
    */
@@ -154,21 +154,15 @@ export type RuleListRulesetsResponse = Array<RuleListRulesetsResponse.RuleListRu
 export namespace RuleListRulesetsResponse {
   export interface RuleListRulesetsResponseItem {
     /**
-     * @default nanoid()
      * @minLength 5
      */
     uid: string;
     /**
-     * @default ""
      * @maxLength 100
      */
     title: string;
-    /**
-     * @default ""
-     */
     description: string;
     /**
-     * @default randomManagedDocSlug()
      * @minLength 3
      * @maxLength 60
      * @pattern ^[a-z](?:[a-z0-9-]*[a-z0-9])?$
@@ -180,9 +174,6 @@ export namespace RuleListRulesetsResponse {
      * @pattern ^[a-zA-Z0-9-_]+$
      */
     namespace: string;
-    /**
-     * @default false
-     */
     isPrivate: boolean;
   }
 }

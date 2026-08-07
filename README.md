@@ -11,6 +11,8 @@ The full API of this library can be found in [api.md](./api.md).
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Reference](./api.md)
+- [Shell Completion](#shell-completion)
+- [Manual Pages](#manual-pages)
 - [Authentication](#authentication)
 - [Errors](#errors)
 - [Client Options](#client-options)
@@ -24,7 +26,9 @@ The full API of this library can be found in [api.md](./api.md).
 ## Installation
 
 ```sh
-npm install -g scalarapi-cli
+# Homebrew — standalone binary, no Node.js required
+brew tap scalar/scalar-cli-homebrew https://github.com/scalar/scalar-cli-homebrew
+brew install scalarapi
 ```
 
 <br />
@@ -40,6 +44,34 @@ scalarapi registry list-all-api-documents --bearer-auth "$BEARER_AUTH"
 The examples in the following sections assume a `client` configured as shown above.
 
 See the [API reference](./api.md) for every available operation.
+
+<br />
+
+## Shell Completion
+
+`scalarapi completion <shell>` prints a completion script for bash, zsh, and fish. Add the matching line to your shell startup file to complete commands, subcommands, and flags with Tab.
+
+```sh
+# bash (~/.bashrc)
+eval "$(scalarapi completion bash)"
+
+# zsh (~/.zshrc)
+eval "$(scalarapi completion zsh)"
+
+# fish (~/.config/fish/config.fish)
+scalarapi completion fish | source
+```
+
+<br />
+
+## Manual Pages
+
+Installing the package globally also installs man pages. `man scalarapi` lists every command, and each command has its own page named after the command with spaces and `:` replaced by `-`.
+
+```sh
+man scalarapi
+man scalarapi-<resource>-<command>
+```
 
 <br />
 
@@ -102,6 +134,6 @@ Generated clients support request timeouts and retry temporary failures such as 
 
 ## Requirements
 
-- Node.js 20 or newer
+- None — the standalone binaries bundle their own runtime.
 
 Powered by Scalar.
