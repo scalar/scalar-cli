@@ -1,0 +1,91 @@
+{
+  "name": "scalarapi-cli",
+  "version": "0.2.0",
+  "description": "API for managing Scalar platform resources.",
+  "type": "module",
+  "bin": {
+    "scalarapi": "./dist/esm/bin.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "api.md",
+    "man",
+    "SKILL.md"
+  ],
+  "man": [
+    "./man/scalarapi.1",
+    "./man/scalarapi-registry-list-all-api-documents.1",
+    "./man/scalarapi-registry-list-api-documents.1",
+    "./man/scalarapi-registry-create-api-document.1",
+    "./man/scalarapi-registry-update-api-document.1",
+    "./man/scalarapi-registry-delete-api-document.1",
+    "./man/scalarapi-registry-retrieve-api-document-version.1",
+    "./man/scalarapi-registry-update-api-document-version.1",
+    "./man/scalarapi-registry-delete-api-document-version.1",
+    "./man/scalarapi-registry-list-api-document-version-metadata.1",
+    "./man/scalarapi-registry-create-api-document-version.1",
+    "./man/scalarapi-registry-create-api-document-access-group.1",
+    "./man/scalarapi-registry-delete-api-document-access-group.1",
+    "./man/scalarapi-schemas-list.1",
+    "./man/scalarapi-schemas-create.1",
+    "./man/scalarapi-schemas-update.1",
+    "./man/scalarapi-schemas-delete.1",
+    "./man/scalarapi-schemas-version-command-retrieve-schema.1",
+    "./man/scalarapi-schemas-version-command-delete-schema.1",
+    "./man/scalarapi-schemas-version-command-create-schema.1",
+    "./man/scalarapi-schemas-access-group-create-schema.1",
+    "./man/scalarapi-schemas-access-group-delete-schema.1",
+    "./man/scalarapi-login-portals-retrieve.1",
+    "./man/scalarapi-login-portals-update.1",
+    "./man/scalarapi-login-portals-delete.1",
+    "./man/scalarapi-login-portals-create.1",
+    "./man/scalarapi-login-portals-list.1",
+    "./man/scalarapi-rules-list-rulesets.1",
+    "./man/scalarapi-rules-create-ruleset.1",
+    "./man/scalarapi-rules-update-ruleset.1",
+    "./man/scalarapi-rules-delete-ruleset.1",
+    "./man/scalarapi-rules-retrieve-ruleset-document.1",
+    "./man/scalarapi-rules-create-ruleset-access-group.1",
+    "./man/scalarapi-rules-delete-ruleset-access-group.1",
+    "./man/scalarapi-themes-list.1",
+    "./man/scalarapi-themes-create.1",
+    "./man/scalarapi-themes-update.1",
+    "./man/scalarapi-themes-replace-document.1",
+    "./man/scalarapi-themes-delete.1",
+    "./man/scalarapi-themes-retrieve.1",
+    "./man/scalarapi-teams-list.1",
+    "./man/scalarapi-scalar-docs-list-guides.1",
+    "./man/scalarapi-scalar-docs-create-guide.1",
+    "./man/scalarapi-scalar-docs-publish-guide.1",
+    "./man/scalarapi-namespaces-list.1",
+    "./man/scalarapi-authentication-exchange-personal-token.1",
+    "./man/scalarapi-authentication-list-current-user.1",
+    "./man/scalarapi-completion.1"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/finalize-build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.cjs.json --noEmit"
+  },
+  "dependencies": {
+    "ansis": "^4.3.0",
+    "commander": "^14.0.3",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^6.0.0"
+  },
+  "license": "Apache-2.0"
+}
