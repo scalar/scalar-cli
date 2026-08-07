@@ -10,7 +10,9 @@ Generated CLI client for Scalar API, published as `scalarapi-cli`. Use the gener
 ## Install
 
 ```sh
-npm install -g scalarapi-cli
+# Homebrew — standalone binary, no Node.js required
+brew tap scalar/scalar-cli-homebrew https://github.com/scalar/scalar-cli-homebrew
+brew install scalarapi
 ```
 
 ## Client setup and authentication
@@ -35,7 +37,7 @@ Non-success responses throw generated API errors. Error objects expose status, h
 
 ## Requirements
 
-- Node.js 20 or newer
+- None — the standalone binaries bundle their own runtime.
 
 ## Reference files
 

@@ -16,8 +16,7 @@ import type { RequestInit, RequestInfo, BodyInit, Fetch } from './internal/built
 import { buildHeaders, type HeadersLike } from './internal/headers';
 import type { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import type { HTTPMethod, FinalizedRequestInit, MergedRequestInit, PromiseOrValue } from './internal/types';
-import { stringify as stringifyQuery } from './internal/qs/stringify';
-import type { StringifyOptions } from './internal/qs/types';
+import { stringifyQuery } from './internal/utils/query';
 import { toFile } from './core/uploads';
 import { VERSION } from './version';
 import { Registry, type Version, type AccessGroup, type RegistryListAllAPIDocumentsResponse, type RegistryListAPIDocumentsResponse, type RegistryCreateAPIDocumentResponse, type RegistryUpdateAPIDocumentResponse, type RegistryDeleteAPIDocumentResponse, type RegistryRetrieveAPIDocumentVersionResponse, type RegistryUpdateAPIDocumentVersionResponse, type RegistryDeleteAPIDocumentVersionResponse, type RegistryListAPIDocumentVersionMetadataResponse, type RegistryCreateAPIDocumentVersionResponse, type RegistryCreateAPIDocumentAccessGroupResponse, type RegistryDeleteAPIDocumentAccessGroupResponse, type RegistryCreateAPIDocumentParams, type RegistryUpdateAPIDocumentParams, type RegistryDeleteAPIDocumentParams, type RegistryRetrieveAPIDocumentVersionParams, type RegistryUpdateAPIDocumentVersionParams, type RegistryDeleteAPIDocumentVersionParams, type RegistryListAPIDocumentVersionMetadataParams, type RegistryCreateAPIDocumentVersionParams, type RegistryCreateAPIDocumentAccessGroupParams, type RegistryDeleteAPIDocumentAccessGroupParams } from "./resources/registry";
@@ -31,9 +30,6 @@ import { Namespaces, type NamespaceListResponse } from "./resources/namespaces";
 import { Authentication, type AuthenticationExchangePersonalTokenResponse, type AuthenticationListCurrentUserResponse, type AuthenticationExchangePersonalTokenParams } from "./resources/authentication";
 
 export type AuthTokenProvider = () => string | Promise<string>;
-
-const queryArrayFormat: NonNullable<StringifyOptions["arrayFormat"]> = "indices";
-const queryAllowDots = false;
 
 export interface ClientOptions {
   /**
@@ -216,7 +212,7 @@ export class Scalar {
   }
 
   protected stringifyQuery(query: object | Record<string, unknown>): string {
-    return stringifyQuery(query, { arrayFormat: queryArrayFormat, allowDots: queryAllowDots });
+    return stringifyQuery(query);
   }
 
   private getUserAgent(): string {

@@ -1,0 +1,147 @@
+.\" File generated from our OpenAPI spec by Scalar. Do not edit.
+.TH "SCALARAPI\-LOGIN\-PORTALS\-CREATE" "1" "" "scalarapi" "Scalar API Manual"
+.SH "NAME"
+scalarapi\-login\-portals\-create \- Create a portal
+.SH "SYNOPSIS"
+.B scalarapi login\-portals create
+\fB\-\-title\fR \fI<value>\fR \fB\-\-slug\fR \fI<value>\fR \fB\-\-email\fR \fI<json>\fR \fB\-\-page\fR \fI<json>\fR [\fIoptions\fR]
+.SH "DESCRIPTION"
+Create a login portal for the current team.
+.SH "OPTIONS"
+.TP
+\fB\-\-title\fR \fI<value>\fR
+The title body parameter. Required.
+.TP
+\fB\-\-slug\fR \fI<value>\fR
+The slug body parameter. Required.
+.TP
+\fB\-\-email\fR \fI<json>\fR
+The email body parameter. Required.
+.TP
+\fB\-\-email.logo\fR \fI<value>\fR
+The email.logo body parameter.
+.TP
+\fB\-\-email.logo\-size\fR \fI<value>\fR
+The email.logo\-size body parameter.
+.TP
+\fB\-\-email.button\-text\fR \fI<value>\fR
+The email.button\-text body parameter.
+.TP
+\fB\-\-email.message\fR \fI<value>\fR
+The email.message body parameter.
+.TP
+\fB\-\-email.title\fR \fI<value>\fR
+The email.title body parameter.
+.TP
+\fB\-\-email.main\-color\fR \fI<value>\fR
+The email.main\-color body parameter.
+.TP
+\fB\-\-email.main\-background\fR \fI<value>\fR
+The email.main\-background body parameter.
+.TP
+\fB\-\-email.card\-color\fR \fI<value>\fR
+The email.card\-color body parameter.
+.TP
+\fB\-\-email.card\-background\fR \fI<value>\fR
+The email.card\-background body parameter.
+.TP
+\fB\-\-email.button\-color\fR \fI<value>\fR
+The email.button\-color body parameter.
+.TP
+\fB\-\-email.button\-background\fR \fI<value>\fR
+The email.button\-background body parameter.
+.TP
+\fB\-\-page\fR \fI<json>\fR
+The page body parameter. Required.
+.TP
+\fB\-\-page.title\fR \fI<value>\fR
+The page.title body parameter.
+.TP
+\fB\-\-page.description\fR \fI<value>\fR
+The page.description body parameter.
+.TP
+\fB\-\-page.head\fR \fI<value>\fR
+The page.head body parameter.
+.TP
+\fB\-\-page.script\fR \fI<value>\fR
+The page.script body parameter.
+.TP
+\fB\-\-page.theme\fR \fI<value>\fR
+The page.theme body parameter.
+.TP
+\fB\-\-page.company\-name\fR \fI<value>\fR
+The page.company\-name body parameter.
+.TP
+\fB\-\-page.logo\fR \fI<value>\fR
+The page.logo body parameter.
+.TP
+\fB\-\-page.logo\-url\fR \fI<value>\fR
+The page.logo\-url body parameter.
+.TP
+\fB\-\-page.favicon\fR \fI<value>\fR
+The page.favicon body parameter.
+.TP
+\fB\-\-page.terms\-link\fR \fI<value>\fR
+The page.terms\-link body parameter.
+.TP
+\fB\-\-page.privacy\-link\fR \fI<value>\fR
+The page.privacy\-link body parameter.
+.TP
+\fB\-\-page.form\-title\fR \fI<value>\fR
+The page.form\-title body parameter.
+.TP
+\fB\-\-page.form\-description\fR \fI<value>\fR
+The page.form\-description body parameter.
+.TP
+\fB\-\-page.form\-image\fR \fI<value>\fR
+The page.form\-image body parameter.
+.TP
+\fB\-\-base\-url\fR \fI<url>\fR
+Override the base URL for API requests.
+.TP
+\fB\-\-timeout\fR \fI<ms>\fR
+Request timeout in milliseconds.
+.TP
+\fB\-\-max\-retries\fR \fI<count>\fR
+Number of retries for retryable failures.
+.TP
+\fB\-\-format\fR \fI<format>\fR
+Output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-format\-error\fR \fI<format>\fR
+Error output format: auto, json, jsonl, pretty, raw, yaml.
+.TP
+\fB\-\-transform\fR \fI<path>\fR
+Dot\-path transform for data output.
+.TP
+\fB\-\-transform\-error\fR \fI<path>\fR
+Dot\-path transform for error output.
+.TP
+\fB\-r\fR, \fB\-\-raw\-output\fR
+Print transformed string values without JSON quotes.
+.TP
+\fB\-\-debug\fR
+Enable SDK debug logging on standard error.
+.TP
+\fB\-\-bearer\-auth\fR \fI<value>\fR
+API credential. Can also be set with the BEARER_AUTH environment variable.
+.SH "EXAMPLES"
+.PP
+.RS 4
+.nf
+scalarapi login\-portals create \-\-bearer\-auth "$BEARER_AUTH" \-\-title 'title' \-\-slug 'slug' \-\-email '{"logo":"","logoSize":"100","buttonText":"Login","message":"Click to access private documentation hosted by scalar.com","title":"Private Docs","mainColor":"#2a2f45","mainBackground":"#f6f6f6","cardColor":"2a2f45","cardBackground":"#fff","buttonColor":"#fff","buttonBackground":"#0f0f0f"}' \-\-page '{"title":"Scalar Private Docs","description":"Login to access your documentation","head":"","script":"","theme":"","companyName":"","logo":"","logoURL":"","favicon":"","termsLink":"","privacyLink":"","formTitle":"Scalar Private Docs","formDescription":"Login to access your documentation","formImage":""}'
+.fi
+.RE
+.SH "ENVIRONMENT"
+.TP
+\fBBEARER_AUTH\fR
+Fallback for \-\-bearer\-auth when the flag is not passed.
+.SH "EXIT STATUS"
+.TP
+\fB0\fR
+The command completed successfully.
+.TP
+\fB1\fR
+A usage error, or the request failed. The error is printed to standard error.
+.SH "SEE ALSO"
+.BR scalarapi (1)

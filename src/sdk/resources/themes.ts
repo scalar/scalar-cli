@@ -33,9 +33,9 @@ export class Themes extends APIResource {
    * @example
    * ```ts
    * const create = await client.themes.create({
-   *   name: "",
-   *   slug: "",
-   *   document: "",
+   *   name: '',
+   *   slug: '',
+   *   document: '',
    * });
    * ```
    */
@@ -53,7 +53,7 @@ export class Themes extends APIResource {
    *
    * @example
    * ```ts
-   * await client.themes.update("slug", {});
+   * await client.themes.update('slug', {});
    * ```
    */
   update(slug: string, body: ThemeUpdateParams, options?: RequestOptions): APIPromise<ThemeUpdateResponse> {
@@ -70,8 +70,8 @@ export class Themes extends APIResource {
    *
    * @example
    * ```ts
-   * await client.themes.replaceDocument("slug", {
-   *   document: "",
+   * await client.themes.replaceDocument('slug', {
+   *   document: '',
    * });
    * ```
    */
@@ -88,7 +88,7 @@ export class Themes extends APIResource {
    *
    * @example
    * ```ts
-   * await client.themes.delete("slug");
+   * await client.themes.delete('slug');
    * ```
    */
   delete(slug: string, options?: RequestOptions): APIPromise<ThemeDeleteResponse> {
@@ -104,7 +104,7 @@ export class Themes extends APIResource {
    *
    * @example
    * ```ts
-   * const string_ = await client.themes.retrieve("slug");
+   * const string_ = await client.themes.retrieve('slug');
    * ```
    */
   retrieve(slug: string, options?: RequestOptions): APIPromise<ThemeRetrieveResponse> {

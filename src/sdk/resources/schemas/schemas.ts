@@ -24,7 +24,7 @@ export class Schemas extends APIResource {
    *
    * @example
    * ```ts
-   * const list = await client.schemas.list("namespace");
+   * const list = await client.schemas.list('namespace');
    * ```
    */
   list(namespace_: string, options?: RequestOptions): APIPromise<SchemaListResponse> {
@@ -41,11 +41,11 @@ export class Schemas extends APIResource {
    *
    * @example
    * ```ts
-   * const create = await client.schemas.create("namespace", {
-   *   title: "",
-   *   version: "x",
-   *   slug: "",
-   *   document: "",
+   * const create = await client.schemas.create('namespace', {
+   *   title: '',
+   *   version: 'x',
+   *   slug: '',
+   *   document: '',
    * });
    * ```
    */
@@ -63,8 +63,8 @@ export class Schemas extends APIResource {
    *
    * @example
    * ```ts
-   * await client.schemas.update("slug", {
-   *   namespace: "namespace",
+   * await client.schemas.update('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -83,8 +83,8 @@ export class Schemas extends APIResource {
    *
    * @example
    * ```ts
-   * await client.schemas.delete("slug", {
-   *   namespace: "namespace",
+   * await client.schemas.delete('slug', {
+   *   namespace: 'namespace',
    * });
    * ```
    */
@@ -99,21 +99,15 @@ export type SchemaListResponse = Array<SchemaListResponse.SchemaListResponseItem
 export namespace SchemaListResponse {
   export interface SchemaListResponseItem {
     /**
-     * @default nanoid()
      * @minLength 5
      */
     uid: string;
     /**
-     * @default ""
      * @maxLength 100
      */
     title: string;
-    /**
-     * @default ""
-     */
     description: string;
     /**
-     * @default randomManagedDocSlug()
      * @minLength 3
      * @maxLength 60
      * @pattern ^[a-z](?:[a-z0-9-]*[a-z0-9])?$
@@ -125,9 +119,6 @@ export namespace SchemaListResponse {
      * @pattern ^[a-zA-Z0-9-_]+$
      */
     namespace: string;
-    /**
-     * @default false
-     */
     isPrivate: boolean;
     versions: Array<SchemaListResponseItem.Version>;
   }
@@ -135,24 +126,20 @@ export namespace SchemaListResponse {
   export namespace SchemaListResponseItem {
     export interface Version {
       /**
-       * @default nanoid()
        * @minLength 5
        */
       uid: string;
       /**
-       * @default unixTimestamp()
        * @minimum 0
        * @maximum 9007199254740991
        */
       createdAt: number;
       /**
-       * @default unixTimestamp()
        * @minimum 0
        * @maximum 9007199254740991
        */
       updatedAt: number;
       /**
-       * @default 0.0.1
        * @minLength 1
        */
       version: RegistryAPI.Version;

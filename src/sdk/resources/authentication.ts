@@ -15,7 +15,7 @@ export class Authentication extends APIResource {
    * @example
    * ```ts
    * const exchangePersonalToken = await client.authentication.exchangePersonalToken({
-   *   personalToken: "",
+   *   personalToken: '',
    * });
    * ```
    */
@@ -49,18 +49,15 @@ export interface AuthenticationExchangePersonalTokenResponse {
 
 export interface AuthenticationListCurrentUserResponse {
   /**
-   * @default nanoid()
    * @minLength 5
    */
   uid: string;
   /**
-   * @default unixTimestamp()
    * @minimum 0
    * @maximum 9007199254740991
    */
   createdAt: number;
   /**
-   * @default unixTimestamp()
    * @minimum 0
    * @maximum 9007199254740991
    */
@@ -71,9 +68,6 @@ export interface AuthenticationListCurrentUserResponse {
    */
   email: string;
   activeTeamId: string | null;
-  /**
-   * @default false
-   */
   hasGithub: boolean;
   teams: Array<AuthenticationListCurrentUserResponse.Team>;
   theme?: string;
